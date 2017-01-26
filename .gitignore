@@ -2,3 +2,7 @@ venv
 *.pyc
 staticfiles
 .env
+__pycache__
+venv
+.DS_Store
+/static

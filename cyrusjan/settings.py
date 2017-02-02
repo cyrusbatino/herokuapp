@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -63,6 +64,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.media',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -123,6 +125,9 @@ ALLOWED_HOSTS = ['*']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+ENV_PATH = os.path.abspath(os.path.dirname(__file__))
+MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
+MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
@@ -134,3 +139,11 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# E-mail server
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+DEFAULT_FROM_EMAIL = 'testing@example.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False 
+EMAIL_PORT = 1025

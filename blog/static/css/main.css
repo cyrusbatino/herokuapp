@@ -900,6 +900,20 @@
 		color: #aaa;
 	}
 
+/* Video */
+	.video {
+		display: inline-block;
+	}
+
+		.video iframe {
+			display: block;
+			margin: 0 0 2em 0;
+			width: 100%;
+			overflow: hidden;
+			position: relative;	
+		}	
+
+
 /* Image */
 
 	.image {
@@ -914,6 +928,14 @@
 		.image.fit {
 			display: block;
 			width: 100%;
+		}
+
+		.image.dynamic {
+			display: block;
+			margin: 0 0 2em 0;
+			width: 100%;
+			overflow: hidden;
+			position: relative;
 		}
 
 		.image.featured {
@@ -1059,6 +1081,12 @@
 
 		#nav a.icon:before {
 			padding-right: 0;
+		}
+
+		#nav a.back {
+			margin: 2em 0 2em 0;
+			text-decoration: none;
+			font-size: 14pt;
 		}
 
 /* Panels */
@@ -1322,6 +1350,7 @@
 				width: 45em;
 				background: #ffffff;
 				box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.25);
+
 			/*	border: solid 1px #616161;*/
 			}
 
@@ -1488,6 +1517,7 @@
 
 			#main {
 				background: none;
+				
 			}
 
 			.panel {

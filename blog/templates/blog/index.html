@@ -1,68 +1,109 @@
-{% extends 'blog/base.html' %}
-
-
+{% extends 'blog/home.html' %}
+{% load widget_tweaks %}
 {% load staticfiles %}
 
 {% block thoughts %}
 	<section>
 		<div class="row">
+		{% for post in thoughts %}
 			<div class="4u 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
+				<a href="{% url 'detail_thoughts' slug=post.slug %}" class="image dynamic">
+					<img src="{{ post.thumb.url }}" alt="">
+				</a>
 			</div>
-			<div class="4u 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
-			</div>
-			<div class="4u$ 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
-			</div>
+		{% endfor %}
 		</div>
 	</section>
 {% endblock %}
+
 
 {% block work %}
 	<section>
 		<div class="row">
+		{% for post in work %}
 			<div class="4u 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
+				<a href="{% url 'detail_work' slug=post.slug %}" class="image dynamic">
+					<img src="{{ post.thumb.url }}" alt="">
+				</a>
 			</div>
-			<div class="4u 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
-			</div>
-			<div class="4u$ 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
-			</div>
+		{% endfor %}
 		</div>
 	</section>
 {% endblock %}
+
 
 {% block photo %}
 	<section>
 		<div class="row">
+		{% for post in photos %}
 			<div class="4u 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
+				<a href="{% url 'detail_photos' slug=post.slug %}" class="image dynamic">
+					<img src="{{ post.thumb.url }}" alt="">
+				</a>
 			</div>
-			<div class="4u 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
-			</div>
-			<div class="4u$ 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
-			</div>
+		{% endfor %}
 		</div>
 	</section>
 {% endblock %}
 
+
 {% block video %}
 	<section>
 		<div class="row">
+		{% for post in videos %}
 			<div class="4u 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
+				<a href="{% url 'detail_videos' slug=post.slug %}" class="image dynamic">
+					<img src="{{ post.thumb.url }}" alt="">
+				</a>
 			</div>
-			<div class="4u 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
-			</div>
-			<div class="4u$ 12u$(mobile)">
-				<a href="#" class="image fit"><img src="{% static 'images/pic01.jpg' %}" alt=""></a>
+		{% endfor %}
+		</div>
+	</section>
+{% endblock %}
+
+
+{% block contact %}
+	<section>
+		<div id="footer">
+			<div class="info">
+				<a href="mailto:cyrusjan.batino@gmail.com" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/cyrusjan" target="_blank">
+					 <i class="fa fa-linkedin"></i>
+				</a>
+				<a href="https://www.instagram.com/cyrusjan/" target="_blank">
+					<i class="fa fa-instagram"></i>
+				</a>
+				<a href="https://www.youtube.com/c/cyrusbatino" target="_blank">
+					<i class="fa fa-youtube-play"></i>
+				</a>
+				<a href="https://www.facebook.com/cyrus.batino" target="_blank">
+					<i class="fa fa-facebook"></i>
+				</a>
 			</div>
 		</div>
 	</section>
+	<form action="" method="post">{% csrf_token %}
+		<div>
+			<div class="row">
+				<div class="6u 12u$(mobile)">
+					{% render_field form.name type="text" placeholder="name" %}
+				</div>
+				<div class="6u$ 12u$(mobile)">
+					{% render_field form.email type="text" placeholder="e-mail" %}
+				</div>
+				<div class="12u$">
+					{% render_field form.subject placeholder="subject" %}
+				</div>
+				<div class="12u$">
+					{% render_field form.message placeholder="message" %}
+				</div>
+				<div class="12u$">
+					<input type="submit" value="send message" />
+				</div>
+			</div>
+		</div>
+	</form>
+
 {% endblock %}

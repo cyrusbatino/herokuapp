@@ -53,7 +53,7 @@
 		{% for post in videos %}
 			<div class="4u 12u$(mobile)">
 				<a href="{% url 'detail_videos' slug=post.slug %}" class="image dynamic">
-					<img src="{{ post.thumb.url }}" alt="">
+					<img src="https://i3.ytimg.com/vi/{{ post.youtube }}/maxresdefault.jpg" alt="">
 				</a>
 			</div>
 		{% endfor %}

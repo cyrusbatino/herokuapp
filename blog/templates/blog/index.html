@@ -84,26 +84,5 @@
 			</div>
 		</div>
 	</section>
-	<form action="" method="post">{% csrf_token %}
-		<div>
-			<div class="row">
-				<div class="6u 12u$(mobile)">
-					{% render_field form.name type="text" placeholder="name" %}
-				</div>
-				<div class="6u$ 12u$(mobile)">
-					{% render_field form.email type="text" placeholder="e-mail" %}
-				</div>
-				<div class="12u$">
-					{% render_field form.subject placeholder="subject" %}
-				</div>
-				<div class="12u$">
-					{% render_field form.message placeholder="message" %}
-				</div>
-				<div class="12u$">
-					<input type="submit" value="send message" />
-				</div>
-			</div>
-		</div>
-	</form>
 
 {% endblock %}

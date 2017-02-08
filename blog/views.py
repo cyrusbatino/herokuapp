@@ -4,7 +4,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import Post_Thoughts, Post_Work, Post_Photos, Post_Videos
-from .forms import ContactForm
 
 # Create your views here.
 @login_required

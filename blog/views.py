@@ -2,11 +2,9 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from django.contrib.auth.decorators import login_required
 from .models import Post_Thoughts, Post_Work, Post_Photos, Post_Videos
 
 # Create your views here.
-@login_required
 def post_list(request):
 	post_t = Post_Thoughts.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 	post_w = Post_Work.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -21,22 +19,18 @@ def post_list(request):
 	})
 
 
-@login_required
 def detail_thoughts(request, slug):
     post = get_object_or_404(Post_Thoughts, slug=slug)
     return render(request, 'blog/post_detail.html', {'post': post,'ext':'#blog','head':'thoughts'})
 
-@login_required
 def detail_work(request, slug):
     post = get_object_or_404(Post_Thoughts, slug=slug)
     return render(request, 'blog/post_detail.html', {'post': post,'ext':'#work','head':'projects'})
 
-@login_required
 def detail_photos(request, slug):
     post = get_object_or_404(Post_Photos, slug=slug)
     return render(request, 'blog/post_detail.html', {'post': post,'ext':'#photo','head':'photography'})
 
-@login_required
 def detail_videos(request, slug):
     post = get_object_or_404(Post_Videos, slug=slug)
     return render(request, 'blog/post_detail.html', {'post': post,'ext':'#film','head':'filmography'})

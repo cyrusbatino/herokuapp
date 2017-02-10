@@ -139,9 +139,3 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Dropbox File Storage
-DBBACKUP_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DBBACKUP_STORAGE_OPTIONS = {
-    'oauth2_access_token': 'EsEdXoVAT-AAAAAAAAB5hUKgywCS_12qHH3T8z6WH9oBUDwd2gM4pIA4pRYW03YW',
-}

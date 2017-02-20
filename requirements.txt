@@ -1,7 +1,10 @@
 dj-database-url==0.4.1
 Django==1.10.4
+django-storages==1.5.2
+django-widget-tweaks==1.4.1
 gunicorn==19.6.0
+Pillow==2.9.0
 psycopg2==2.6.2
 whitenoise==3.2
-django-widget-tweaks==1.4.1
-Pillow==4.0.0
+boto3==1.4.4
+

@@ -6,10 +6,10 @@ from .models import Post_Thoughts, Post_Work, Post_Photos, Post_Videos
 
 # Create your views here.
 def post_list(request):
-	post_t = Post_Thoughts.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-	post_w = Post_Work.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-	post_p = Post_Photos.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-	post_v = Post_Videos.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+	post_t = Post_Thoughts.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+	post_w = Post_Work.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+	post_p = Post_Photos.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+	post_v = Post_Videos.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 	return render(request, 'blog/index.html', {
 		'thoughts':post_t,
